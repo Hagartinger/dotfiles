@@ -6,4 +6,6 @@ local config = wezterm.config_builder()
 
 config.color_scheme = 'Kanagawa (Gogh)'
 
+config.default_prog = {'pwsh.exe'}
+
 return config
