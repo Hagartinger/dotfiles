@@ -1,11 +1,11 @@
 return {
 	{
-		'rebelot/kanagawa.nvim',
+		"rebelot/kanagawa.nvim",
 		name = "kanagawa",
 		priority = 1000,
-		lazy=false,
+		lazy = false,
 		config = function()
-			vim.cmd.colorscheme 'kanagawa'
-		end
+			vim.cmd.colorscheme("kanagawa")
+		end,
 	},
 }

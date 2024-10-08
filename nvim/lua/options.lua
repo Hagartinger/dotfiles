@@ -3,7 +3,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- Disable mouse
-vim.opt.mouse = ''
+vim.opt.mouse = ""
 
 -- Save undo history
 vim.opt.undofile = true
@@ -12,7 +12,7 @@ vim.opt.undofile = true
 vim.opt.ignorecase = true
 
 -- Keep singcolumn on
-vim.opt.signcolumn = 'yes'
+vim.opt.signcolumn = "yes"
 
 -- Decrease update time
 vim.opt.updatetime = 250
@@ -22,7 +22,7 @@ vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300
 
 -- Preview substitutions live, as you type!
-vim.opt.inccommand = 'split'
+vim.opt.inccommand = "split"
 
 -- Highlights the line cursor is on
 vim.opt.cursorline = true
@@ -41,5 +41,3 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 -- Use spaces instead of tabs in insert mode
 vim.opt.expandtab = true
-
-
