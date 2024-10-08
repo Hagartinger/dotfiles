@@ -77,7 +77,12 @@ return {
 		dependencies = {
             {"williamboman/mason.nvim", opts = {}},
 	        "williamboman/mason-lspconfig.nvim",
-            'WhoIsSethDaniel/mason-tool-installer.nvim',
+            {'WhoIsSethDaniel/mason-tool-installer.nvim',
+                opts = function(_, opts)
+                    opts.ensure_installed = opts.ensure_installed or {}
+                    vim.list_extend(opts.ensure_installed, vim.tbl_keys(servers or {}))
+                end,
+            },
 			{"j-hui/fidget.nvim", opts = {}},
 		},
 		config = function()
@@ -88,11 +93,6 @@ return {
 			capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
             require('mason').setup()
-            local ensure_installed = vim.tbl_keys(servers or {})
-            vim.list_extend(ensure_installed, {
-                {'clang-format', version = '18.1.6'},
-            })
-            require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 			require('mason-lspconfig').setup {
 				handlers = {
 					function (servername)
