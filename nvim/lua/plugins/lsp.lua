@@ -94,15 +94,6 @@ return {
 				opts = function(_, opts)
 					opts.ensure_installed = opts.ensure_installed or {}
                     vim.list_extend(opts.ensure_installed, vim.tbl_keys(servers or {}))
-
-                    for i = 1, #opts.ensure_installed do
-                        if opts.ensure_installed[i] == "clangd" then
-                            table.remove(opts.ensure_installed,i)
-                            break
-                        end
-                    end
-
-					vim.list_extend(opts.ensure_installed, {{"clangd", version = "18.1.3"}})
 				end,
 			},
 			{ "j-hui/fidget.nvim", opts = {} },
