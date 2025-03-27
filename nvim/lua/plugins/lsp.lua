@@ -1,6 +1,17 @@
 local servers = {
 	clangd = {
-		cmd = { "clangd", "--completion-style=detailed", "--clang-tidy", "--pch-storage=memory" },
+		cmd = {
+			"clangd",
+			"--header-insertion-decorators",
+			"--all-scopes-completion",
+			"--background-index",
+			"--completion-style=detailed",
+			"--clang-tidy",
+			"--pch-storage=memory",
+		},
+		root_dir = function()
+			return vim.fn.getcwd()
+		end,
 	},
 	lua_ls = {
 		settings = {
