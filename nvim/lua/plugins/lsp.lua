@@ -35,6 +35,7 @@ local servers = {
 			},
 		},
 	},
+    slang = { settings = {}},
 }
 
 local setup_keymaps_on_lsp_attach = function()
