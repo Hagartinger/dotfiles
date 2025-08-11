@@ -36,6 +36,7 @@ local servers = {
 		},
 	},
     slang = { settings = {}},
+    cmake = {},
 }
 
 local setup_keymaps_on_lsp_attach = function()
