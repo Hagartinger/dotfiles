@@ -52,15 +52,15 @@ local setup_keymaps_on_lsp_attach = function()
 			-- Jump to the definition of the word under your cursor.
 			--  This is where a variable was first declared, or where a function is defined, etc.
 			--  To jump back, press <C-t>.
-			map("gd", ":FzfLua lsp_definitions<CR>", "[G]oto [D]efinition")
-			map("gD", ":FzfLua lsp_declarations<CR>", "[G]oto [D]eclaration")
+			map("<leader>gd", ":FzfLua lsp_definitions<CR>", "[G]oto [D]efinition")
+			map("<leader>gD", ":FzfLua lsp_declarations<CR>", "[G]oto [D]eclaration")
 
 			-- Jump to the type of the word under your cursor.
 			--  Useful when you're not sure what type a variable is and you want to see
 			--  the definition of its *type*, not where it was *defined*.
-			map("gt",  ":FzfLua lsp_typedefs<CR>", "[G]oto [T]ype")
+			map("<leader>gt",  ":FzfLua lsp_typedefs<CR>", "[G]oto [T]ype")
 			-- Find rederences for the word
-			map("gr",   ":FzfLua lsp_references<CR>", "[G]oto [R]eferences")
+			map("<leader>gr",   ":FzfLua lsp_references<CR>", "[G]oto [R]eferences")
 			map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 			map("<leader>rn", vim.lsp.buf.rename, "[R]e[N]ame")
 
