@@ -9,8 +9,8 @@ local servers = {
 			"--clang-tidy",
 			"--pch-storage=memory",
 		},
-		root_dir = function()
-			return vim.fn.getcwd()
+		root_dir = function(buffnr, on_dir)
+            on_dir(vim.fn.getcwd())
 		end,
 	},
 	lua_ls = {
@@ -102,20 +102,18 @@ return {
 		},
 		config = function()
 			setup_keymaps_on_lsp_attach()
-			local lspconfig = require("lspconfig")
+
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
 			require("mason").setup()
-			require("mason-lspconfig").setup({
-				handlers = {
-					function(servername)
-						local server = servers[servername] or {}
-						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-						lspconfig[servername].setup(server)
-					end,
-				},
-			})
+			require("mason-lspconfig").setup()
+
+            for server_name, config in pairs(servers) do
+				config.capabilities = vim.tbl_deep_extend("force", {}, capabilities, config.capabilities or {})
+                vim.lsp.config[server_name] = config
+                vim.lsp.enable(server_name)
+            end
 		end,
 	},
 }
