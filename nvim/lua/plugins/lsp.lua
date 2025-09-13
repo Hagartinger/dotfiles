@@ -7,6 +7,8 @@ local servers = {
 			"--background-index",
 			"--completion-style=detailed",
 			"--clang-tidy",
+            "--limit-references=0",
+            "--limit-results=0",
 			"--pch-storage=memory",
 		},
 		root_dir = function(buffnr, on_dir)
@@ -43,7 +45,6 @@ local setup_keymaps_on_lsp_attach = function()
 	vim.api.nvim_create_autocmd("LspAttach", {
 		group = vim.api.nvim_create_augroup("hagartinger-lsp-attach", { clear = true }),
 		callback = function(event)
-			local telescope_builtin = require("telescope.builtin")
 			local map = function(keys, func, desc, mode)
 				mode = mode or "n"
 				vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
