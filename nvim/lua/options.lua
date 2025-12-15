@@ -40,3 +40,5 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 -- Use spaces instead of tabs in insert mode
 vim.opt.expandtab = true
+
+vim.opt.conceallevel = 1
