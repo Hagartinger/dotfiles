@@ -6,7 +6,7 @@ return {
 			opts = function(_, opts)
 				opts.ensure_installed = opts.ensure_installed or {}
 				vim.list_extend(opts.ensure_installed, {
-					{ "clang-format", version = "18.1.6" },
+					{ "clang-format", version = "21.1.2" },
 					"stylua",
 				})
 			end,
